@@ -42,9 +42,9 @@ print(Y_mean)
 def SigmaXx_Yy(db):
 	num = 0
 	for id in db:
-		tran = id
-		xX = float(tran[0]) - X_mean
-		yY = float(tran[1]) - Y_mean
+		
+		xX = float(id[0]) - X_mean
+		yY = float(id[1]) - Y_mean
 		prod = xX * yY
 		#print(prod)
 		num += prod
@@ -58,8 +58,8 @@ print(Xx_Yy)
 def SigmaXx2(db):
 	prod = 0
 	for id in db:
-		tran = id
-		sub = float(tran[0]) - X_mean
+		
+		sub = float(id[0]) - X_mean
 		prod += sub * sub
 		#print(prod)
 	return prod
@@ -88,8 +88,18 @@ linear(10)
 import numpy as np
 from matplotlib import pyplot as plt
 
-x = np.linespace(0,30,100)
-y = b0 + b1*3
+# x = np.linspace(0,30,100)
+x = np.array(data)
 
-plt.scatter(x,y,color="green",marker="^")
-plt.scatter(x_test,predictions,color="d")
+y = b0 + b1*x
+x_p=[]
+y_p = []
+for id in data:
+	x_p.append(id[0])
+	y_p.append(id[1])
+print(x_p)
+print(y_p)
+plt.scatter(x_p, y_p, color="green", marker="^", s=20)
+plt.plot(x, y, color="yellow")
+plt.show()
+# plt.scatter(x_test,predictions,color="d")
