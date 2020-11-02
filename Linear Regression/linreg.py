@@ -1,24 +1,35 @@
 import csv
 
-def getValues(path):
-	f = open(path,'r')
-	data = csv.reader(f)
-	csvData={}
-	for row in data:
-		csvData[row[0]] = row[1].split();
-	return csvData
+# def getValues(path):
+# 	f = open(path,'r')
+# 	data = csv.reader(f)
+# 	csvData={}
+# 	for row in data:
+# 		csvData[row[0]] = row[1].split();
+# 	return csvData
 
 
-data = getValues("linear.csv")
+# data = getValues("linear.csv")
+
+
+data = [[1, 3],
+		[2, 5],
+		[3, 4],
+		[6, 8],
+		[4, 5],
+		[5, 9],
+		[7, 12],
+		[8, 9],
+		[9, 15],
+		[10, 20],
+	]
 print(data)
-
-
 def Mean(db, index):
 	x_sum = 0
 	for id in db:
-		tran = db[id]
+		# print(id)
+		x_sum += float(id[index])
 
-	x_sum += float(tran[index])
 	return (x_sum/len(db))
 
 
@@ -31,7 +42,7 @@ print(Y_mean)
 def SigmaXx_Yy(db):
 	num = 0
 	for id in db:
-		tran = db[id]
+		tran = id
 		xX = float(tran[0]) - X_mean
 		yY = float(tran[1]) - Y_mean
 		prod = xX * yY
@@ -47,7 +58,7 @@ print(Xx_Yy)
 def SigmaXx2(db):
 	prod = 0
 	for id in db:
-		tran = db[id]
+		tran = id
 		sub = float(tran[0]) - X_mean
 		prod += sub * sub
 		#print(prod)
