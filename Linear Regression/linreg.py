@@ -1,15 +1,4 @@
-import csv
 
-# def getValues(path):
-# 	f = open(path,'r')
-# 	data = csv.reader(f)
-# 	csvData={}
-# 	for row in data:
-# 		csvData[row[0]] = row[1].split();
-# 	return csvData
-
-
-# data = getValues("linear.csv")
 
 
 data = [[1, 3],
