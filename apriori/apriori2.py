@@ -1,4 +1,6 @@
 import csv
+
+
 def getValuesFromCsv(path):
     f = open( path , 'r')
     data = csv.reader(f)
@@ -27,6 +29,7 @@ def createL1(data):
     return L1
 
 L1 = createL1(data)
+print("\na########################################")
 print("L1 table")
 for item in L1:
     print(item, L1[item])
@@ -45,7 +48,7 @@ def prune(l, minSup):
 
 def apriori(data, L1, minSup):
     kTables = {}
-    k = 2
+    k = minSup
     print("l1:", L1)
     c = prune(L1, minSup)
     print("c1:", c)
@@ -59,7 +62,7 @@ def apriori(data, L1, minSup):
             break
         kTables[k] = c
         k += 1
-    print("\nFinal Answer:")
+    print("\nFINAL ANSWERa:")
     print(kTables[k - 1])
 
 
@@ -121,5 +124,8 @@ def createL(newKeys, data):
 
 
 minSup = 2
+
+print("\n*****************************")
 print("Minimum Support:", minSup)
+print("*****************************\n")
 apriori(data, L1, minSup)
